@@ -1,6 +1,9 @@
 
+import { useState } from 'react';
 import { PlusCircle, Download, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
+import InvoiceFormModal from './modals/InvoiceFormModal';
 import {
   Table,
   TableBody,
@@ -61,6 +64,60 @@ const mockInvoices = [
 ];
 
 const InvoiceManagement = () => {
+  const { toast } = useToast();
+  const [invoices, setInvoices] = useState(mockInvoices);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const handleAddInvoice = async (invoiceData: Partial<{
+    id: string;
+    client: string;
+    project: string;
+    amount: number;
+    issueDate: string;
+    dueDate: string;
+    status: string;
+  }>) => {
+    setIsSubmitting(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      const newInvoice: {
+        id: string;
+        client: string;
+        project: string;
+        amount: number;
+        issueDate: string;
+        dueDate: string;
+        status: string;
+      } = {
+        id: `INV-${String(invoices.length + 1).padStart(3, '0')}`,
+        client: invoiceData.client || '',
+        project: invoiceData.project || '',
+        amount: invoiceData.amount || 0,
+        issueDate: invoiceData.issueDate || new Date().toISOString().split('T')[0],
+        dueDate: invoiceData.dueDate || '',
+        status: invoiceData.status || 'pending'
+      };
+      
+      setInvoices(prev => [newInvoice, ...prev]);
+      setIsModalOpen(false);
+      
+      toast({
+        title: "Invoice created",
+        description: "New invoice has been created successfully.",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to create invoice. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   // Format date to more readable format
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -90,7 +147,7 @@ const InvoiceManagement = () => {
             <Filter className="h-4 w-4 mr-2" />
             Filter
           </Button>
-          <Button>
+          <Button onClick={() => setIsModalOpen(true)}>
             <PlusCircle className="h-4 w-4 mr-2" />
             Create New Invoice
           </Button>
@@ -111,7 +168,7 @@ const InvoiceManagement = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {mockInvoices.map(invoice => (
+            {invoices.map(invoice => (
               <TableRow key={invoice.id}>
                 <TableCell className="font-medium">{invoice.id}</TableCell>
                 <TableCell>
@@ -138,6 +195,14 @@ const InvoiceManagement = () => {
           </TableBody>
         </Table>
       </div>
+      
+      {/* Invoice Form Modal */}
+      <InvoiceFormModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleAddInvoice}
+        isSubmitting={isSubmitting}
+      />
     </div>
   );
 };
