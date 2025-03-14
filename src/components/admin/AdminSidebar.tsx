@@ -44,11 +44,11 @@ const AdminSidebar = ({ activeSection, setActiveSection, isOpen }: AdminSidebarP
       )}
     >
       <div className="p-4 border-b border-gray-700 flex items-center justify-between">
-        <Link to="/" className={cn("font-bold text-white", !isOpen && "hidden")}>
+        <Link to="/" className={cn("font-bold text-white text-sm sm:text-base", !isOpen && "hidden")}>
           DBOY ADMIN
         </Link>
         {!isOpen && (
-          <span className="mx-auto text-2xl font-bold">D</span>
+          <span className="mx-auto text-xl sm:text-2xl font-bold">D</span>
         )}
       </div>
 
@@ -59,14 +59,14 @@ const AdminSidebar = ({ activeSection, setActiveSection, isOpen }: AdminSidebarP
               <button
                 onClick={() => setActiveSection(item.id as AdminSectionType)}
                 className={cn(
-                  "w-full flex items-center space-x-3 px-4 py-3 rounded-md transition-colors duration-200",
+                  "w-full flex items-center space-x-3 px-3 py-2.5 sm:px-4 sm:py-3 rounded-md transition-colors duration-200",
                   activeSection === item.id 
                     ? "bg-dboy-pink text-white" 
                     : "text-gray-300 hover:bg-gray-800 hover:text-white"
                 )}
               >
-                <item.icon size={20} />
-                {isOpen && <span>{item.label}</span>}
+                <item.icon size={18} className="sm:w-5 sm:h-5" />
+                {isOpen && <span className="text-sm sm:text-base">{item.label}</span>}
               </button>
             </li>
           ))}
@@ -79,7 +79,7 @@ const AdminSidebar = ({ activeSection, setActiveSection, isOpen }: AdminSidebarP
           className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200"
         >
           <LogOut size={20} />
-          {isOpen && <span>Back to Site</span>}
+          {isOpen && <span className="text-sm sm:text-base">Back to Site</span>}
         </Link>
       </div>
     </aside>
