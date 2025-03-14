@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,34 +25,20 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
-				},
-				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
-				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
-				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
-				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
-				},
-				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
-				},
+				primary: 'hsl(var(--primary))',
+				'primary-foreground': 'hsl(var(--primary-foreground))',
+				secondary: 'hsl(var(--secondary))',
+				'secondary-foreground': 'hsl(var(--secondary-foreground))',
+				destructive: 'hsl(var(--destructive))',
+				'destructive-foreground': 'hsl(var(--destructive-foreground))',
+				muted: 'hsl(var(--muted))',
+				'muted-foreground': 'hsl(var(--muted-foreground))',
+				accent: 'hsl(var(--accent))',
+				'accent-foreground': 'hsl(var(--accent-foreground))',
+				popover: 'hsl(var(--popover))',
+				'popover-foreground': 'hsl(var(--popover-foreground))',
+				card: 'hsl(var(--card))',
+				'card-foreground': 'hsl(var(--card-foreground))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -61,7 +48,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                // Custom colors for Dboy Graphics
+                'dboy-black': '#121212',
+                'dboy-white': '#FFFFFF',
+                'dboy-pink': '#FF3366',
+                'dboy-purple': '#7000FF',
+                'dboy-gray': '#2A2A2A',
+                'dboy-light-gray': '#F5F5F5'
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				heading: ['Montserrat', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +82,33 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                'fade-in': {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateY(10px)'
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'translateY(0)'
+                    }
+                },
+                'slide-in': {
+                    '0%': {
+                        transform: 'translateX(-20px)',
+                        opacity: '0'
+                    },
+                    '100%': {
+                        transform: 'translateX(0)',
+                        opacity: '1'
+                    }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'fade-in': 'fade-in 0.5s ease-out forwards',
+                'slide-in': 'slide-in 0.5s ease-out forwards'
 			}
 		}
 	},
