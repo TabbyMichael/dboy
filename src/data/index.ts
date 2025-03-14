@@ -133,6 +133,27 @@ export const testimonials = [
     position: "Marketing Director",
     company: "NextGen Devices",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    quote: "The packaging design for our organic food line has significantly increased our shelf presence. We've seen a 30% increase in sales since the rebrand.",
+    name: "Emma Rodriguez",
+    position: "Marketing Manager",
+    company: "Pure Harvest",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    quote: "Working with Dboy Graphics on our logo redesign was a game-changer. The new design perfectly captures our brand's spirit of adventure and exploration.",
+    name: "Daniel Lee",
+    position: "Founder",
+    company: "Summit Outdoors",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    quote: "The website redesign has transformed our online presence. Page views are up by 65% and our average session duration has doubled. Couldn't be happier!",
+    name: "Olivia Bennett",
+    position: "E-commerce Director",
+    company: "Handmade Collective",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
   }
 ];
 
