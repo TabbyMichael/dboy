@@ -56,7 +56,7 @@ const mockConversation = [
   {
     id: 'msg-2',
     sender: 'me',
-    text: 'Hi Alex! I've just emailed you the initial concepts for the logo and brand identity. Let me know what you think!',
+    text: 'Hi Alex! I\'ve just emailed you the initial concepts for the logo and brand identity. Let me know what you think!',
     time: '10:20 AM',
   },
   {
