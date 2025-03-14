@@ -56,9 +56,9 @@ const Footer = () => {
           
           <div className="col-span-1 md:col-span-3 lg:col-span-1">
             <h3 className="text-white font-heading text-lg font-semibold mb-4">Contact</h3>
-            <p className="text-gray-400 mb-2">Los Angeles, CA</p>
+            <p className="text-gray-400 mb-2">Nairobi, Kenya , KE</p>
             <p className="text-gray-400 mb-2">contact@dboygraphics.com</p>
-            <p className="text-gray-400 mb-4">(555) 123-4567</p>
+            <p className="text-gray-400 mb-4">+254 798 378896</p>
             <Link to="/contact" className="inline-block px-4 py-2 bg-dboy-pink hover:bg-dboy-pink/80 text-white rounded transition-colors">
               Get in Touch
             </Link>
