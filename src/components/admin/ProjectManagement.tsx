@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
@@ -6,8 +5,20 @@ import { PlusCircle, Filter, SortDesc } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
-// Mock project data
-const mockProjects = [
+// Define the project type to match the one in ProjectCard.tsx
+type Project = {
+  id: string;
+  title: string;
+  client: string;
+  status: 'new' | 'in-progress' | 'pending-approval' | 'completed';
+  deadline: string;
+  description: string;
+  priority: 'low' | 'medium' | 'high';
+  thumbnail: string;
+};
+
+// Mock project data with correctly typed status values
+const mockProjects: Project[] = [
   {
     id: 'proj-1',
     title: 'Cosmic Cafe Branding Refresh',
