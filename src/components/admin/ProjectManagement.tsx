@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { PlusCircle, Filter, SortDesc } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { useToast } from '@/hooks/use-toast';
+import ProjectFormModal from './modals/ProjectFormModal';
 
 // Define the project type to match the one in ProjectCard.tsx
 type Project = {
@@ -74,11 +76,44 @@ const mockProjects: Project[] = [
 type ProjectStatus = 'all' | 'new' | 'in-progress' | 'pending-approval' | 'completed';
 
 const ProjectManagement = () => {
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState<ProjectStatus>('all');
+  const [projects, setProjects] = useState<Project[]>(mockProjects);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const filteredProjects = activeTab === 'all' 
-    ? mockProjects 
-    : mockProjects.filter(project => project.status === activeTab);
+    ? projects 
+    : projects.filter(project => project.status === activeTab);
+    
+  const handleAddProject = async (projectData: Partial<Project>) => {
+    setIsSubmitting(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      const newProject: Project = {
+        id: `proj-${Date.now()}`,
+        ...projectData as Omit<Project, 'id'>
+      };
+      
+      setProjects(prev => [newProject, ...prev]);
+      setIsModalOpen(false);
+      
+      toast({
+        title: "Project created",
+        description: "New project has been added successfully.",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to create project. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   
   return (
     <div className="space-y-6">
@@ -94,7 +129,7 @@ const ProjectManagement = () => {
             <SortDesc className="h-4 w-4 mr-2" />
             Sort
           </Button>
-          <Button size="sm">
+          <Button size="sm" onClick={() => setIsModalOpen(true)}>
             <PlusCircle className="h-4 w-4 mr-2" />
             New Project
           </Button>
@@ -126,6 +161,14 @@ const ProjectManagement = () => {
           )}
         </TabsContent>
       </Tabs>
+
+      {/* Project Form Modal */}
+      <ProjectFormModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleAddProject}
+        isSubmitting={isSubmitting}
+      />
     </div>
   );
 };

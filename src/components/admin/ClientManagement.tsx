@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { PlusCircle, Search, UserPlus } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import ClientFormModal from './modals/ClientFormModal';
 import {
   Table,
   TableBody,
@@ -73,13 +75,63 @@ const mockClients = [
 ];
 
 const ClientManagement = () => {
+  const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState('');
+  const [clients, setClients] = useState(mockClients);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const filteredClients = mockClients.filter(client => 
+  const filteredClients = clients.filter(client => 
     client.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     client.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
     client.email.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  
+  const handleAddClient = async (clientData: Partial<{
+    id: string;
+    name: string;
+    company: string;
+    email: string;
+    phone: string;
+    avatar: string;
+    activeProjects: number;
+    totalProjects: number;
+    lastContact: string;
+  }>) => {
+    setIsSubmitting(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      const newClient = {
+        id: `client-${Date.now()}`,
+        name: clientData.name || '',
+        company: clientData.company || '',
+        email: clientData.email || '',
+        phone: clientData.phone || '',
+        avatar: clientData.avatar || '',
+        activeProjects: 0,
+        totalProjects: 0,
+        lastContact: clientData.lastContact || new Date().toISOString().split('T')[0]
+      };
+      
+      setClients(prev => [newClient, ...prev]);
+      setIsModalOpen(false);
+      
+      toast({
+        title: "Client added",
+        description: "New client has been added successfully.",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to add client. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   // Format date to more readable format
   const formatDate = (dateString: string) => {
@@ -92,7 +144,7 @@ const ClientManagement = () => {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Client Management</h1>
         
-        <Button>
+        <Button onClick={() => setIsModalOpen(true)}>
           <UserPlus className="h-4 w-4 mr-2" />
           Add New Client
         </Button>
@@ -167,6 +219,14 @@ const ClientManagement = () => {
           </TableBody>
         </Table>
       </div>
+      
+      {/* Client Form Modal */}
+      <ClientFormModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleAddClient}
+        isSubmitting={isSubmitting}
+      />
     </div>
   );
 };
