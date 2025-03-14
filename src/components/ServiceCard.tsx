@@ -2,16 +2,17 @@
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { LucideIcon } from 'lucide-react';
 
 export interface ServiceProps {
   id: string;
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon: LucideIcon;
   price?: string;
 }
 
-const ServiceCard = ({ id, title, description, icon, price }: ServiceProps) => {
+const ServiceCard = ({ id, title, description, icon: Icon, price }: ServiceProps) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -21,7 +22,9 @@ const ServiceCard = ({ id, title, description, icon, price }: ServiceProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative z-10">
-        <div className="mb-4 text-dboy-pink">{icon}</div>
+        <div className="mb-4 text-dboy-pink">
+          <Icon size={32} />
+        </div>
         <h3 className="text-white text-xl font-bold mb-2">{title}</h3>
         <p className="text-gray-400 mb-4">{description}</p>
         {price && (

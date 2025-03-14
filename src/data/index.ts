@@ -71,42 +71,42 @@ export const services = [
     id: 'branding',
     title: 'Branding & Identity',
     description: 'Comprehensive branding solutions including logo design, brand guidelines, and identity systems.',
-    icon: <Palette size={32} />,
+    icon: Palette,
     price: '$2,500'
   },
   {
     id: 'ui-ux',
     title: 'UI/UX Design',
     description: 'User-centered interface and experience design for web and mobile applications.',
-    icon: <Layout size={32} />,
+    icon: Layout,
     price: '$3,000'
   },
   {
     id: 'web-design',
     title: 'Web Design',
     description: 'Custom website design with focus on aesthetics, usability, and conversion optimization.',
-    icon: <Code size={32} />,
+    icon: Code,
     price: '$1,800'
   },
   {
     id: 'motion',
     title: 'Motion Graphics',
     description: 'Dynamic animations and visual effects for videos, presentations, and digital platforms.',
-    icon: <Video size={32} />,
+    icon: Video,
     price: '$1,500'
   },
   {
     id: 'logo',
     title: 'Logo Design',
     description: 'Distinctive, memorable logo design that encapsulates your brand essence.',
-    icon: <PenTool size={32} />,
+    icon: PenTool,
     price: '$800'
   },
   {
     id: 'print',
     title: 'Print Design',
     description: 'Packaging, business collateral, posters, and other print materials designed for impact.',
-    icon: <FileImage size={32} />,
+    icon: FileImage,
     price: '$600'
   }
 ];
