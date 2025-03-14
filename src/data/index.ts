@@ -72,42 +72,42 @@ export const services = [
     title: 'Branding & Identity',
     description: 'Comprehensive branding solutions including logo design, brand guidelines, and identity systems.',
     icon: Palette,
-    price: '$2,500'
+    price: 'Ksh 320,000'
   },
   {
     id: 'ui-ux',
     title: 'UI/UX Design',
     description: 'User-centered interface and experience design for web and mobile applications.',
     icon: Layout,
-    price: '$3,000'
+    price: 'Ksh 390,000'
   },
   {
     id: 'web-design',
     title: 'Web Design',
     description: 'Custom website design with focus on aesthetics, usability, and conversion optimization.',
     icon: Code,
-    price: '$1,800'
+    price: 'Ksh 230,000'
   },
   {
     id: 'motion',
     title: 'Motion Graphics',
     description: 'Dynamic animations and visual effects for videos, presentations, and digital platforms.',
     icon: Video,
-    price: '$1,500'
+    price: 'Ksh 195,000'
   },
   {
     id: 'logo',
     title: 'Logo Design',
     description: 'Distinctive, memorable logo design that encapsulates your brand essence.',
     icon: PenTool,
-    price: '$800'
+    price: 'Ksh 105,000'
   },
   {
     id: 'print',
     title: 'Print Design',
     description: 'Packaging, business collateral, posters, and other print materials designed for impact.',
     icon: FileImage,
-    price: '$600'
+    price: 'Ksh 78,000'
   }
 ];
 
