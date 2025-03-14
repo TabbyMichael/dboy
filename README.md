@@ -9,42 +9,42 @@ Dboy Graphics is a powerful web app designed to streamline the workflow of graph
 ✅ Active clients & pending tasks
 ✅ AI-powered notifications & reminders
 
-![Platform Overview](src/assets/2.png)
+![Platform Overview](public\assets\2.png)
 
 2️⃣ Project Management – Stay Organized Like a Pro
 ✅ Add, track, and manage projects
 ✅ Task checklist with due dates & priority levels
 ✅ Client collaboration & real-time feedback
 
-![Platform Overview](src/assets/5.png)
+![Platform Overview](public/assets/5.png)
 
 3️⃣ Client Management – Build Lasting Relationships
 ✅ Store client details & project history
 ✅ Chat & email integration for seamless communication
 ✅ AI-suggested follow-ups & reminders
 
-![Platform Overview](src/assets/3.png)
+![Platform Overview](public/assets/3.png)
 
 4️⃣ Portfolio Showcase – Impress and Attract New Clients
 ✅ Upload and categorize your best work
 ✅ Drag-and-drop portfolio manager
 ✅ AI-powered SEO optimization for better online visibility
 
-![Platform Overview](src/assets/4.png)
+![Platform Overview](public/assets/4.png)
 
 5️⃣ Invoicing & Payments – Get Paid Hassle-Free
 ✅ Generate branded invoices in one click
 ✅ Track payments & due invoices
 ✅ Integrate Stripe, PayPal, or Wise for easy transactions
 
-![Platform Overview](src/assets/5.png)
+![Platform Overview](public/assets/5.png)
 
 6️⃣ Customizable CMS – Full Control Over Your Website
 ✅ Update homepage text & images
 ✅ Manage services, pricing, and blog content
 ✅ Dark mode & theme customization
 
-![Platform Overview](src/assets/3.png)
+![Platform Overview](public/assets/3.png)
 
 🛠 TECH STACK
 🔹 Frontend: Next.js (React) + Tailwind CSS
