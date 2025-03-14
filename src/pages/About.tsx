@@ -25,7 +25,7 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                src="public/assets/Dboy.png" 
                 alt="Designer at work" 
                 className="rounded-lg shadow-lg w-full"
               />
@@ -33,22 +33,15 @@ const AboutPage = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6">My Story</h2>
               <p className="text-gray-700 mb-4">
-                I'm Daniel, the creative mind behind Dboy Graphics. With a passion for design that began in childhood, 
-                I've spent the last decade honing my craft and helping brands tell their stories through powerful visuals.
+              I'm Tony, the creative mind behind Dboy Graphics. My passion for design started in childhood, and over the last decade, I’ve honed my craft, helping brands tell their stories through striking visuals.
+              After earning a Graphic Design degree from Parsons School of Design, I worked with top agencies before launching my own studio in 2016. Since then, I’ve collaborated with clients of all sizes—from ambitious startups to Fortune 500 companies—crafting designs that not only stand out but also drive real impact.
               </p>
               <p className="text-gray-700 mb-4">
-                After graduating with a degree in Graphic Design from Parsons School of Design, I worked with several 
-                top agencies before launching my own studio in 2018. Since then, I've collaborated with clients ranging 
-                from startups to Fortune 500 companies.
-              </p>
-              <p className="text-gray-700 mb-4">
-                My approach combines strategic thinking with creative execution. I believe that great design solves problems 
-                while creating emotional connections. Every project begins with deep research and understanding of the brand's 
-                goals and audience.
+              My approach combines strategic thinking with artistic execution. To me, great design isn’t just about aesthetics—it’s about solving problems and creating meaningful connections.
+              Every project starts with deep research to ensure that each design aligns perfectly with a brand’s goals and speaks directly to its audience.
               </p>
               <p className="text-gray-700">
-                When I'm not designing, you can find me exploring new art exhibitions, photographing urban landscapes, or 
-                experimenting with new design techniques and tools.
+              When I’m not designing, you’ll find me exploring art galleries, capturing urban landscapes through photography, or experimenting with the latest design techniques and tools. Creativity isn’t just my career—it’s my way of life.
               </p>
             </div>
           </div>

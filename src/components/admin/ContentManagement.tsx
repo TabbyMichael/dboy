@@ -1,22 +1,26 @@
-
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Edit, Filter, PlusCircle, Save, Trash } from 'lucide-react';
 import { services, testimonials } from '@/data';
-import { Edit, Save, Trash } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
+import ServiceFormModal from './modals/ServiceFormModal';
+
+type Service = {
+  id: string;
+  title: string;
+  description: string;
+  price: string;
+}
 
 const ContentManagement = () => {
   const [activeTab, setActiveTab] = useState('services');
+  const [isServiceModalOpen, setIsServiceModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [servicesList, setServicesList] = useState<Service[]>(services);
+  const { toast } = useToast();
 
   return (
     <div className="space-y-6">
@@ -32,11 +36,14 @@ const ContentManagement = () => {
         <TabsContent value="services" className="space-y-6">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold">Manage Services</h2>
-            <Button>Add New Service</Button>
+            <Button onClick={() => setIsServiceModalOpen(true)}>
+              <PlusCircle className="h-4 w-4 mr-2" />
+              Add New Service
+            </Button>
           </div>
           
           <div className="space-y-4">
-            {services.map((service, index) => (
+            {servicesList.map((service, index) => (
               <div key={service.id} className="border rounded-md p-4 flex items-start justify-between hover:bg-gray-50">
                 <div className="flex-1">
                   <h3 className="font-medium">{service.title}</h3>
@@ -56,6 +63,46 @@ const ContentManagement = () => {
               </div>
             ))}
           </div>
+
+          <ServiceFormModal
+            isOpen={isServiceModalOpen}
+            onClose={() => setIsServiceModalOpen(false)}
+            isSubmitting={isSubmitting}
+            onSubmit={async (serviceData) => {
+              setIsSubmitting(true);
+              try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                if (!serviceData.title || !serviceData.description || !serviceData.price) {
+                  throw new Error('All fields are required');
+                }
+                
+                const newService: Service = {
+                  id: `service-${Date.now()}`,
+                  title: serviceData.title,
+                  description: serviceData.description,
+                  price: serviceData.price
+                };
+                
+                setServicesList(prev => [newService, ...prev]);
+                setIsServiceModalOpen(false);
+                
+                toast({
+                  title: "Service added",
+                  description: "New service has been added successfully.",
+                });
+              } catch (error) {
+                toast({
+                  title: "Error",
+                  description: "Failed to add service. Please try again.",
+                  variant: "destructive",
+                });
+              } finally {
+                setIsSubmitting(false);
+              }
+            }}
+          />
         </TabsContent>
         
         <TabsContent value="testimonials" className="space-y-6">
@@ -96,6 +143,46 @@ const ContentManagement = () => {
               </div>
             ))}
           </div>
+
+          <ServiceFormModal
+            isOpen={isServiceModalOpen}
+            onClose={() => setIsServiceModalOpen(false)}
+            isSubmitting={isSubmitting}
+            onSubmit={async (serviceData) => {
+              setIsSubmitting(true);
+              try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                if (!serviceData.title || !serviceData.description || !serviceData.price) {
+                  throw new Error('All fields are required');
+                }
+                
+                const newService: Service = {
+                  id: `service-${Date.now()}`,
+                  title: serviceData.title,
+                  description: serviceData.description,
+                  price: serviceData.price
+                };
+                
+                setServicesList(prev => [newService, ...prev]);
+                setIsServiceModalOpen(false);
+                
+                toast({
+                  title: "Service added",
+                  description: "New service has been added successfully.",
+                });
+              } catch (error) {
+                toast({
+                  title: "Error",
+                  description: "Failed to add service. Please try again.",
+                  variant: "destructive",
+                });
+              } finally {
+                setIsSubmitting(false);
+              }
+            }}
+          />
         </TabsContent>
         
         <TabsContent value="homepage" className="space-y-6">
@@ -151,6 +238,46 @@ const ContentManagement = () => {
               Save Changes
             </Button>
           </div>
+
+          <ServiceFormModal
+            isOpen={isServiceModalOpen}
+            onClose={() => setIsServiceModalOpen(false)}
+            isSubmitting={isSubmitting}
+            onSubmit={async (serviceData) => {
+              setIsSubmitting(true);
+              try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                if (!serviceData.title || !serviceData.description || !serviceData.price) {
+                  throw new Error('All fields are required');
+                }
+                
+                const newService: Service = {
+                  id: `service-${Date.now()}`,
+                  title: serviceData.title,
+                  description: serviceData.description,
+                  price: serviceData.price
+                };
+                
+                setServicesList(prev => [newService, ...prev]);
+                setIsServiceModalOpen(false);
+                
+                toast({
+                  title: "Service added",
+                  description: "New service has been added successfully.",
+                });
+              } catch (error) {
+                toast({
+                  title: "Error",
+                  description: "Failed to add service. Please try again.",
+                  variant: "destructive",
+                });
+              } finally {
+                setIsSubmitting(false);
+              }
+            }}
+          />
         </TabsContent>
       </Tabs>
     </div>
