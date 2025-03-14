@@ -92,33 +92,36 @@ const ServicesPage = () => {
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold mb-12 text-center">Services in Detail</h2>
           
-          {services.map(service => (
-            <div key={service.id} id={service.id} className="mb-16 scroll-mt-32">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div className={`order-2 md:order-1`}>
-                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                  <p className="text-gray-700 mb-4">{service.description}</p>
-                  <p className="mb-4">
-                    <span className="font-semibold">Starting at:</span>{' '}
-                    <span className="text-dboy-pink font-bold">{service.price}</span>
-                  </p>
-                  <div className="mt-6">
-                    <a 
-                      href="/contact" 
-                      className="inline-block px-6 py-3 bg-dboy-pink text-white font-medium rounded hover:bg-dboy-pink/90 transition-colors"
-                    >
-                      Request This Service
-                    </a>
+          {services.map(service => {
+            const IconComponent = service.icon;
+            return (
+              <div key={service.id} id={service.id} className="mb-16 scroll-mt-32">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <div className={`order-2 md:order-1`}>
+                    <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                    <p className="text-gray-700 mb-4">{service.description}</p>
+                    <p className="mb-4">
+                      <span className="font-semibold">Starting at:</span>{' '}
+                      <span className="text-dboy-pink font-bold">{service.price}</span>
+                    </p>
+                    <div className="mt-6">
+                      <a 
+                        href="/contact" 
+                        className="inline-block px-6 py-3 bg-dboy-pink text-white font-medium rounded hover:bg-dboy-pink/90 transition-colors"
+                      >
+                        Request This Service
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div className={`bg-dboy-black/5 p-12 rounded-lg order-1 md:order-2 flex items-center justify-center`}>
-                  <div className="text-dboy-pink">
-                    {service.icon}
+                  <div className={`bg-dboy-black/5 p-12 rounded-lg order-1 md:order-2 flex items-center justify-center`}>
+                    <div className="text-dboy-pink">
+                      <IconComponent size={32} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
       
