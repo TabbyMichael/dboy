@@ -13,7 +13,7 @@ import { portfolioProjects, services, testimonials, clients } from '@/data';
 
 const HomePage = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const featuredProjects = portfolioProjects.filter(project => project.featured);
+  const featuredProjects = portfolioProjects.filter(project => project.featured).slice(0, 4);
   const featuredServices = services.slice(0, 3);
   
   useEffect(() => {
@@ -91,7 +91,7 @@ const HomePage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {featuredProjects.map(project => (
               <ProjectCard 
                 key={project.id}
