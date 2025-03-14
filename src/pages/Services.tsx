@@ -1,4 +1,6 @@
 
+import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ServiceCard from '@/components/ServiceCard';
@@ -6,6 +8,27 @@ import TestimonialCard from '@/components/TestimonialCard';
 import { services, testimonials } from '@/data';
 
 const ServicesPage = () => {
+  const location = useLocation();
+  const servicesRef = useRef<{[key: string]: HTMLDivElement | null}>({});
+
+  // Handle scroll to section based on hash in URL
+  useEffect(() => {
+    if (location.hash) {
+      // Remove the # from the hash
+      const id = location.hash.substring(1);
+      const element = servicesRef.current[id];
+      
+      if (element) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: element.offsetTop - 100, // Account for fixed header
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="bg-white text-dboy-black min-h-screen">
       <Navbar />
@@ -95,7 +118,12 @@ const ServicesPage = () => {
           {services.map(service => {
             const IconComponent = service.icon;
             return (
-              <div key={service.id} id={service.id} className="mb-16 scroll-mt-32">
+              <div 
+                key={service.id} 
+                id={service.id} 
+                className="mb-16 scroll-mt-32"
+                ref={el => servicesRef.current[service.id] = el}
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                   <div className={`order-2 md:order-1`}>
                     <h3 className="text-2xl font-bold mb-4">{service.title}</h3>

@@ -26,9 +26,9 @@ const Footer = () => {
               <a href="mailto:contact@dboygraphics.com" className="text-gray-400 hover:text-dboy-pink transition-colors">
                 <Mail size={20} />
               </a>
-              <a href="#chat" className="text-gray-400 hover:text-dboy-pink transition-colors">
+              <Link to="/contact" className="text-gray-400 hover:text-dboy-pink transition-colors">
                 <MessageSquare size={20} />
-              </a>
+              </Link>
             </div>
           </div>
           
