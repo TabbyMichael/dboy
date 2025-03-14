@@ -9,7 +9,7 @@ Dboy Graphics is a powerful web app designed to streamline the workflow of graph
 ✅ Active clients & pending tasks
 ✅ AI-powered notifications & reminders
 
-![Platform Overview](public\assets\2.png)
+![Platform Overview](public/assets/2.png)
 
 2️⃣ Project Management – Stay Organized Like a Pro
 ✅ Add, track, and manage projects
