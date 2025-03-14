@@ -31,7 +31,7 @@ const ContactPage = () => {
               <div className="space-y-4 mb-8">
                 <div>
                   <h3 className="text-lg font-semibold mb-1">Location</h3>
-                  <p className="text-gray-600">Los Angeles, CA</p>
+                  <p className="text-gray-600">Nairobi, Kenya, CA</p>
                 </div>
                 
                 <div>
@@ -43,7 +43,7 @@ const ContactPage = () => {
                 
                 <div>
                   <h3 className="text-lg font-semibold mb-1">Phone</h3>
-                  <a href="tel:+15551234567" className="text-dboy-pink hover:underline">(555) 123-4567</a>
+                  <a href="tel:+15551234567" className="text-dboy-pink hover:underline">+254 798 378896</a>
                 </div>
               </div>
               
@@ -76,9 +76,16 @@ const ContactPage = () => {
       {/* Map Section */}
       <section className="py-16 bg-dboy-light-gray">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="bg-gray-300 h-96 rounded-lg flex items-center justify-center">
-            <p className="text-gray-600">Map Placeholder</p>
-          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.462334755275!2d36.88661185!3d-1.2191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f15b9d18c9c7d%3A0x3b1e47589c9b6fd1!2sKasarani%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1637000000000!5m2!1sen!2ske"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-lg shadow-lg"
+          />
         </div>
       </section>
       
